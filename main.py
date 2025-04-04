@@ -115,7 +115,6 @@ class HighlightExtractor:
         except Exception as e:
             print(f"Failed to save speaker log: {e}")
 
-
     def split_video_by_speaker_log(self, video_path, speaker_json_path, output_dir="clips"):
         # Load the speaker log
         with open(speaker_json_path, 'r') as f:
@@ -224,8 +223,7 @@ class HighlightExtractor:
         else:
             return None, results
 
-
-    def process_video(self, video_path, known_players=[]):
+    def process_video(self, video_path, player_json, known_players=[]):
         """ Process video and extract speaker names sequentially (no multiprocessing). """
         frames, timestamps = self.extract_frames(video_path)
         for i, frame in enumerate(frames):
@@ -256,8 +254,7 @@ class HighlightExtractor:
             except Exception as e:
                 print(f"Error processing frame {i}: {e}")
         self.merge_player_intervals()
-        self.save_player_log_to_json("speaker_log.json")
-
+        self.save_player_log_to_json(player_json)
 
     def process_frame(self, frame, timestamp, frame_index):
         """Process a single frame and extract speaker names."""
@@ -294,6 +291,7 @@ if __name__ == "__main__":
     video_path = "clipped.mp4"
     trimmed_video_path = "trimmed_video.mp4"
     image_path = "image1.png"
+    player_json_path = "player_json.json"
     known_players = [
     "T1 stax",
     "T1 iZu",
@@ -308,7 +306,7 @@ if __name__ == "__main__":
     ]
     # frame = cv2.imread(image_path)
     extractor = HighlightExtractor(video_path)
-    # extractor.trim_video(video_path,trimmed_video_path, duration=300, delete_files=[trimmed_video_path])
-    # extractor.process_video(trimmed_video_path, known_players)
-    extractor.split_video_by_speaker_log(video_path, "speaker_log.json")
+    extractor.trim_video(video_path,trimmed_video_path, duration=300, delete_files=[trimmed_video_path])
+    extractor.process_video(trimmed_video_path, player_json_path, known_players)
+    extractor.split_video_by_speaker_log(video_path, player_json_path)
     # extractor.process_frame(frame, 0, 0)
