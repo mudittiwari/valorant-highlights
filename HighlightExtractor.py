@@ -74,7 +74,7 @@ class HighlightExtractor:
                 break
             frames.append(frame)
             timestamps.append(round(i / fps, 2))
-            for _ in range(10):
+            for _ in range(5):
                 cap.read()
                 i += 1
             i += 1
@@ -90,12 +90,17 @@ class HighlightExtractor:
             return lowercase_map[match[0]]
         return None
 
-    def trim_video(self, input_file, output_file, duration=1, delete_files=None):
+    def delete_files(self, delete_files):
         if delete_files:
             for file in delete_files:
-                if os.path.exists(file):
-                    os.remove(file)
+                local_path = os.path.join(os.getcwd(), file)  # Force local dir
+                if os.path.exists(local_path) and os.path.isfile(local_path):
+                    os.remove(local_path)
                     print(f"Deleted: {file}")
+
+        print("files deleted successfully")
+
+    def trim_video(self, input_file, output_file, duration=1):
         command = [
             "ffmpeg",
             "-i", input_file,
@@ -105,7 +110,7 @@ class HighlightExtractor:
             output_file
         ]
         subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, check=True)
-        print("files deleted successfully")
+        print("files cropped successfully")
 
     def save_player_log_to_json(self, json_path):
         try:
@@ -121,6 +126,7 @@ class HighlightExtractor:
             speaker_log = json.load(f)
 
         os.makedirs(output_dir, exist_ok=True)
+        VIDEO_FILE = os.path.abspath(video_path)
 
         # Group entries by player
         player_intervals = defaultdict(list)
@@ -138,35 +144,38 @@ class HighlightExtractor:
 
             for idx, (start, end) in enumerate(intervals):
                 duration = round(end - start, 2)
-                temp_clip = os.path.join(output_dir, f"{safe_player}_part{idx}.mp4")
+                temp_clip = os.path.abspath(os.path.join(output_dir, f"{safe_player}_part{idx}.mp4"))
+                print(temp_clip)
                 temp_files.append(temp_clip)
-
+                print(temp_files)
                 cmd = [
                     "ffmpeg",
                     "-y",
                     "-ss", str(start),
-                    "-i", video_path,
+                    "-i", VIDEO_FILE,
                     "-t", str(duration),
                     "-c:v", "copy",
                     "-c:a", "copy",
                     temp_clip
                 ]
-                subprocess.run(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+                subprocess.run(cmd, check=True, stdin=subprocess.DEVNULL)
+                print("video saved successfully")
 
             # Merge all parts into one video using ffmpeg concat
             if len(temp_files) == 1:
                 os.rename(temp_files[0], os.path.join(output_dir, f"{safe_player}.mp4"))
             else:
-                list_file = os.path.join(output_dir, f"{safe_player}_list.txt")
+                list_file = os.path.abspath(os.path.join(output_dir, f"{safe_player}_list.txt"))
                 with open(list_file, "w") as f:
                     for clip in temp_files:
                         f.write(f"file '{os.path.abspath(clip)}'\n")
 
-                merged_path = os.path.join(output_dir, f"{safe_player}.mp4")
+                merged_path =  os.path.abspath(os.path.join(output_dir, f"{safe_player}.mp4"))
+                print(f"Merging {len(temp_files)} parts into {merged_path}...")
                 subprocess.run([
                     "ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", list_file,
                     "-c", "copy", merged_path
-                ], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+                ],  check=True, stdin=subprocess.DEVNULL)
 
                 # Clean up
                 os.remove(list_file)
