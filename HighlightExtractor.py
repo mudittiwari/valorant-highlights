@@ -15,7 +15,7 @@ class HighlightExtractor:
         self.video_path = video_path
         self.output_folder = output_folder
         os.makedirs(output_folder, exist_ok=True)
-        self.reader = easyocr.Reader(['en'], gpu = False)
+        self.reader = easyocr.Reader(['en'], gpu = True)
         self.player_log = []
 
     def merge_player_intervals(self):
@@ -232,38 +232,81 @@ class HighlightExtractor:
         else:
             return None, results
 
+    # def process_video(self, video_path, player_json, known_players=[]):
+    #     """ Process video and extract speaker names sequentially (no multiprocessing). """
+    #     frames, timestamps = self.extract_frames(video_path)
+    #     for i, frame in enumerate(frames):
+    #         try:
+    #             result = self.process_frame(frame, timestamps[i], i)
+    #             if result and result.get("player"):
+    #                 if self.match_player_name(result['player'], known_players, 50) is None:
+    #                     print(f"Unrecognized player: {result['player']}")
+    #                     # result = self.detect_player_container(frame, 0)
+    #                     # if result is None:
+    #                     #     return None
+    #                     # x, y, w, h = result
+    #                     # roi_x_start = x
+    #                     # roi_x_end = x + w
+    #                     # roi_y_start = y
+    #                     # roi_y_end = y + h
+    #                     # roi = frame[roi_y_start:roi_y_end, roi_x_start:roi_x_end]
+    #                     # result, text = self.keep_text_regions_only(roi)
+    #                     # cv2.imshow("Merged Text Mask", result)
+    #                     # key = cv2.waitKey(0) & 0xFF
+    #                     # if key == ord('q'):
+    #                     #     cv2.destroyAllWindows()
+    #                     #     exit()
+    #                 self.player_log.append({
+    #                     "timestamp": result["timestamp"],
+    #                     "player": self.match_player_name(result['player'], known_players, 50)
+    #                 })
+    #         except Exception as e:
+    #             print(f"Error processing frame {i}: {e}")
+    #     self.merge_player_intervals()
+    #     self.save_player_log_to_json(player_json)
+
+
     def process_video(self, video_path, player_json, known_players=[]):
-        """ Process video and extract speaker names sequentially (no multiprocessing). """
+        """Process video and extract speaker names using multiprocessing (10 workers)."""
         frames, timestamps = self.extract_frames(video_path)
-        for i, frame in enumerate(frames):
-            try:
-                result = self.process_frame(frame, timestamps[i], i)
-                if result and result.get("player"):
-                    if self.match_player_name(result['player'], known_players, 50) is None:
-                        print(f"Unrecognized player: {result['player']}")
-                        # result = self.detect_player_container(frame, 0)
-                        # if result is None:
-                        #     return None
-                        # x, y, w, h = result
-                        # roi_x_start = x
-                        # roi_x_end = x + w
-                        # roi_y_start = y
-                        # roi_y_end = y + h
-                        # roi = frame[roi_y_start:roi_y_end, roi_x_start:roi_x_end]
-                        # result, text = self.keep_text_regions_only(roi)
-                        # cv2.imshow("Merged Text Mask", result)
-                        # key = cv2.waitKey(0) & 0xFF
-                        # if key == ord('q'):
-                        #     cv2.destroyAllWindows()
-                        #     exit()
-                    self.player_log.append({
-                        "timestamp": result["timestamp"],
-                        "player": self.match_player_name(result['player'], known_players, 50)
-                    })
-            except Exception as e:
-                print(f"Error processing frame {i}: {e}")
+
+        mp.set_start_method("spawn", force=True)
+        with concurrent.futures.ProcessPoolExecutor(max_workers=10) as executor:
+            future_to_index = {
+                executor.submit(self.process_frame, frame, timestamps[i], i): i
+                for i, frame in enumerate(frames)
+            }
+
+            for future in concurrent.futures.as_completed(future_to_index):
+                i = future_to_index[future]
+                try:
+                    result = future.result()
+                    if result and result.get("player"):
+                        matched_name = self.match_player_name(result["player"], known_players, 50)
+
+                        if matched_name is None:
+                            print(f"Unrecognized player: {result['player']}")
+                            # Optional debug visualization (uncomment to use)
+                            # result = self.detect_player_container(frames[i], i)
+                            # if result is not None:
+                            #     x, y, w, h = result
+                            #     roi = frames[i][y:y+h, x:x+w]
+                            #     result, text = self.keep_text_regions_only(roi)
+                            #     cv2.imshow("Unrecognized Player ROI", roi)
+                            #     if cv2.waitKey(0) & 0xFF == ord('q'):
+                            #         cv2.destroyAllWindows()
+                            #         exit()
+                        else:
+                            self.player_log.append({
+                                "timestamp": result["timestamp"],
+                                "player": matched_name
+                            })
+                except Exception as e:
+                    print(f"Error processing frame {i}: {e}")
+
         self.merge_player_intervals()
         self.save_player_log_to_json(player_json)
+        executor.shutdown(wait=True)
 
     def process_frame(self, frame, timestamp, frame_index):
         """Process a single frame and extract speaker names."""
@@ -294,28 +337,28 @@ class HighlightExtractor:
         return {"timestamp": timestamp, "player": final_name}
 
 
-if __name__ == "__main__":
-    print("CPU Count : ", os.cpu_count()) 
-    # mp.set_start_method("spawn", force=True)
-    video_path = "clipped.mp4"
-    trimmed_video_path = "trimmed_video.mp4"
-    image_path = "image1.png"
-    player_json_path = "player_json.json"
-    known_players = [
-    "T1 stax",
-    "T1 iZu",
-    "T1 Sylvan",
-    "T1 Meteor",
-    "T1 BuZz",
-    "EDG Smoggy",
-    "EDG CHICHOO",
-    "EDG ZmjjKK",
-    "EDG nobody",
-    "EDG Jieni7"
-    ]
-    # frame = cv2.imread(image_path)
-    extractor = HighlightExtractor(video_path)
-    extractor.trim_video(video_path,trimmed_video_path, duration=300, delete_files=[trimmed_video_path])
-    extractor.process_video(trimmed_video_path, player_json_path, known_players)
-    extractor.split_video_by_speaker_log(video_path, player_json_path)
-    # extractor.process_frame(frame, 0, 0)
+# if __name__ == "__main__":
+#     print("CPU Count : ", os.cpu_count()) 
+#     # mp.set_start_method("spawn", force=True)
+#     video_path = "clipped.mp4"
+#     trimmed_video_path = "trimmed_video.mp4"
+#     image_path = "image1.png"
+#     player_json_path = "player_json.json"
+#     known_players = [
+#     "T1 stax",
+#     "T1 iZu",
+#     "T1 Sylvan",
+#     "T1 Meteor",
+#     "T1 BuZz",
+#     "EDG Smoggy",
+#     "EDG CHICHOO",
+#     "EDG ZmjjKK",
+#     "EDG nobody",
+#     "EDG Jieni7"
+#     ]
+#     # frame = cv2.imread(image_path)
+#     extractor = HighlightExtractor(video_path)
+#     extractor.trim_video(video_path,trimmed_video_path, duration=300, delete_files=[trimmed_video_path])
+#     extractor.process_video(trimmed_video_path, player_json_path, known_players)
+#     extractor.split_video_by_speaker_log(video_path, player_json_path)
+#     # extractor.process_frame(frame, 0, 0)

@@ -8,13 +8,22 @@ import multiprocessing as mp
 from redis import Redis
 from rq import Queue
 from worker import process_video_task
+from fastapi.middleware.cors import CORSMiddleware
+
 
 redis_conn = Redis()
 task_queue = Queue("video_tasks", connection=redis_conn)
 app = FastAPI()
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Or set specific domains
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 QUEUE_THRESHOLD = 30
 RATE_LIMIT_SECONDS = 1
-# mp.set_start_method("spawn", force=True)
 
 class ProcessRequest(BaseModel):
     youtube_url: str
@@ -35,7 +44,8 @@ def enqueue_job(req: ProcessRequest):
     
     job = task_queue.enqueue_call(
         func=process_video_task,
-        args=(req.youtube_url, req.start_time, req.end_time, req.player_names, req.email)
+        args=(req.youtube_url, req.start_time, req.end_time, req.player_names, req.email),
+        timeout=3600
     )
     # print(job)
     return {"job_id": job.get_id(), "status": "queued"}
