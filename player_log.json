@@ -1,22 +1,67 @@
 [
     {
         "player": "EDG Smoggy",
-        "start": 0.0,
+        "start": 1.0,
         "end": 2.3
     },
     {
         "player": "EDG nobody",
         "start": 2.5,
-        "end": 5.81
-    },
-    {
-        "player": "EDG CHICHOO",
-        "start": 8.01,
-        "end": 11.71
+        "end": 2.6
     },
     {
         "player": "EDG Smoggy",
-        "start": 15.02,
+        "start": 0.6,
+        "end": 0.6
+    },
+    {
+        "player": "EDG nobody",
+        "start": 2.7,
+        "end": 3.9
+    },
+    {
+        "player": "EDG Smoggy",
+        "start": 0.1,
+        "end": 0.1
+    },
+    {
+        "player": "EDG nobody",
+        "start": 4.0,
+        "end": 4.6
+    },
+    {
+        "player": "EDG Smoggy",
+        "start": 0.0,
+        "end": 0.0
+    },
+    {
+        "player": "EDG nobody",
+        "start": 5.0,
+        "end": 5.81
+    },
+    {
+        "player": "EDG Smoggy",
+        "start": 0.2,
+        "end": 0.7
+    },
+    {
+        "player": "EDG CHICHOO",
+        "start": 6.41,
+        "end": 6.61
+    },
+    {
+        "player": "EDG Smoggy",
+        "start": 0.9,
+        "end": 0.9
+    },
+    {
+        "player": "EDG CHICHOO",
+        "start": 6.81,
+        "end": 12.21
+    },
+    {
+        "player": "EDG Smoggy",
+        "start": 14.51,
         "end": 16.22
     },
     {
@@ -26,7 +71,1587 @@
     },
     {
         "player": "EDG ZmjjKK",
-        "start": 54.75,
-        "end": 55.26
+        "start": 55.05,
+        "end": 56.16
+    },
+    {
+        "player": "T1 Sylvan",
+        "start": 84.28,
+        "end": 86.29
+    },
+    {
+        "player": "EDG ZmjjKK",
+        "start": 86.49,
+        "end": 95.6
+    },
+    {
+        "player": "EDG Smoggy",
+        "start": 95.8,
+        "end": 98.0
+    },
+    {
+        "player": "EDG nobody",
+        "start": 98.1,
+        "end": 100.5
+    },
+    {
+        "player": "EDG Smoggy",
+        "start": 104.0,
+        "end": 107.21
+    },
+    {
+        "player": "EDG ZmjjKK",
+        "start": 107.41,
+        "end": 113.61
+    },
+    {
+        "player": "EDG CHICHOO",
+        "start": 113.71,
+        "end": 117.72
+    },
+    {
+        "player": "EDG Smoggy",
+        "start": 120.02,
+        "end": 130.43
+    },
+    {
+        "player": "T1 stax",
+        "start": 131.53,
+        "end": 132.83
+    },
+    {
+        "player": "EDG Smoggy",
+        "start": 133.23,
+        "end": 133.93
+    },
+    {
+        "player": "EDG ZmjjKK",
+        "start": 136.94,
+        "end": 140.84
+    },
+    {
+        "player": "T1 Sylvan",
+        "start": 144.74,
+        "end": 144.64
+    },
+    {
+        "player": "T1 Meteor",
+        "start": 145.55,
+        "end": 145.85
+    },
+    {
+        "player": "T1 Sylvan",
+        "start": 145.04,
+        "end": 145.04
+    },
+    {
+        "player": "T1 Meteor",
+        "start": 145.95,
+        "end": 147.25
+    },
+    {
+        "player": "T1 Sylvan",
+        "start": 147.35,
+        "end": 147.35
+    },
+    {
+        "player": "T1 Meteor",
+        "start": 146.65,
+        "end": 146.65
+    },
+    {
+        "player": "T1 Sylvan",
+        "start": 147.45,
+        "end": 150.55
+    },
+    {
+        "player": "EDG Smoggy",
+        "start": 151.55,
+        "end": 152.75
+    },
+    {
+        "player": "EDG nobody",
+        "start": 152.95,
+        "end": 153.75
+    },
+    {
+        "player": "T1 BuZz",
+        "start": 154.25,
+        "end": 155.66
+    },
+    {
+        "player": "EDG Smoggy",
+        "start": 155.96,
+        "end": 269.17
+    },
+    {
+        "player": "EDG nobody",
+        "start": 273.37,
+        "end": 275.88
+    },
+    {
+        "player": "EDG Smoggy",
+        "start": 278.68,
+        "end": 281.48
+    },
+    {
+        "player": "EDG nobody",
+        "start": 281.58,
+        "end": 287.79
+    },
+    {
+        "player": "EDG ZmjjKK",
+        "start": 290.79,
+        "end": 298.2
+    },
+    {
+        "player": "EDG Smoggy",
+        "start": 299.0,
+        "end": 303.4
+    },
+    {
+        "player": "EDG ZmjjKK",
+        "start": 303.6,
+        "end": 307.51
+    },
+    {
+        "player": "EDG nobody",
+        "start": 307.81,
+        "end": 313.11
+    },
+    {
+        "player": "EDG Smoggy",
+        "start": 313.91,
+        "end": 313.91
+    },
+    {
+        "player": "EDG nobody",
+        "start": 313.21,
+        "end": 313.21
+    },
+    {
+        "player": "EDG Smoggy",
+        "start": 314.31,
+        "end": 314.81
+    },
+    {
+        "player": "EDG nobody",
+        "start": 315.01,
+        "end": 315.11
+    },
+    {
+        "player": "EDG Smoggy",
+        "start": 314.41,
+        "end": 314.41
+    },
+    {
+        "player": "EDG nobody",
+        "start": 315.21,
+        "end": 315.21
+    },
+    {
+        "player": "EDG Smoggy",
+        "start": 314.61,
+        "end": 314.61
+    },
+    {
+        "player": "EDG nobody",
+        "start": 315.42,
+        "end": 318.12
+    },
+    {
+        "player": "EDG Smoggy",
+        "start": 318.52,
+        "end": 355.66
+    },
+    {
+        "player": "T1 Meteor",
+        "start": 355.86,
+        "end": 357.16
+    },
+    {
+        "player": "EDG ZmjjKK",
+        "start": 359.96,
+        "end": 366.37
+    },
+    {
+        "player": "EDG Smoggy",
+        "start": 366.47,
+        "end": 368.67
+    },
+    {
+        "player": "EDG nobody",
+        "start": 368.77,
+        "end": 370.57
+    },
+    {
+        "player": "EDG Smoggy",
+        "start": 370.67,
+        "end": 377.48
+    },
+    {
+        "player": "T1 BuZz",
+        "start": 380.08,
+        "end": 382.18
+    },
+    {
+        "player": "EDG CHICHOO",
+        "start": 382.48,
+        "end": 382.48
+    },
+    {
+        "player": "EDG nobody",
+        "start": 387.39,
+        "end": 389.49
+    },
+    {
+        "player": "EDG ZmjjKK",
+        "start": 389.79,
+        "end": 390.49
+    },
+    {
+        "player": "EDG nobody",
+        "start": 389.69,
+        "end": 389.69
+    },
+    {
+        "player": "EDG ZmjjKK",
+        "start": 390.59,
+        "end": 396.6
+    },
+    {
+        "player": "EDG Smoggy",
+        "start": 399.3,
+        "end": 400.7
+    },
+    {
+        "player": "T1 Sylvan",
+        "start": 400.8,
+        "end": 401.7
+    },
+    {
+        "player": "T1 Meteor",
+        "start": 401.8,
+        "end": 403.3
+    },
+    {
+        "player": "EDG ZmjjKK",
+        "start": 403.4,
+        "end": 408.71
+    },
+    {
+        "player": "EDG Smoggy",
+        "start": 409.31,
+        "end": 418.42
+    },
+    {
+        "player": "EDG ZmjjKK",
+        "start": 426.43,
+        "end": 429.93
+    },
+    {
+        "player": "EDG CHICHOO",
+        "start": 440.14,
+        "end": 440.64
+    },
+    {
+        "player": "EDG Smoggy",
+        "start": 442.04,
+        "end": 444.14
+    },
+    {
+        "player": "T1 Sylvan",
+        "start": 444.34,
+        "end": 471.57
+    },
+    {
+        "player": "EDG CHICHOO",
+        "start": 472.67,
+        "end": 473.67
+    },
+    {
+        "player": "EDG nobody",
+        "start": 507.21,
+        "end": 513.81
+    },
+    {
+        "player": "T1 Sylvan",
+        "start": 513.91,
+        "end": 517.62
+    },
+    {
+        "player": "T1 Meteor",
+        "start": 520.22,
+        "end": 520.92
+    },
+    {
+        "player": "EDG ZmjjKK",
+        "start": 522.22,
+        "end": 522.22
+    },
+    {
+        "player": "EDG nobody",
+        "start": 523.62,
+        "end": 531.53
+    },
+    {
+        "player": "EDG Smoggy",
+        "start": 536.64,
+        "end": 539.14
+    },
+    {
+        "player": "T1 BuZz",
+        "start": 539.24,
+        "end": 545.14
+    },
+    {
+        "player": "EDG ZmjjKK",
+        "start": 545.24,
+        "end": 559.06
+    },
+    {
+        "player": "EDG Smoggy",
+        "start": 686.09,
+        "end": 687.59
+    },
+    {
+        "player": "T1 iZu",
+        "start": 690.29,
+        "end": 690.29
+    },
+    {
+        "player": "EDG ZmjjKK",
+        "start": 695.59,
+        "end": 703.6
+    },
+    {
+        "player": "EDG nobody",
+        "start": 708.91,
+        "end": 711.61
+    },
+    {
+        "player": "EDG ZmjjKK",
+        "start": 711.91,
+        "end": 721.62
+    },
+    {
+        "player": "EDG nobody",
+        "start": 722.52,
+        "end": 726.33
+    },
+    {
+        "player": "T1 Meteor",
+        "start": 726.43,
+        "end": 729.83
+    },
+    {
+        "player": "EDG CHICHOO",
+        "start": 729.93,
+        "end": 734.13
+    },
+    {
+        "player": "EDG Smoggy",
+        "start": 734.23,
+        "end": 749.75
+    },
+    {
+        "player": "EDG nobody",
+        "start": 749.95,
+        "end": 750.65
+    },
+    {
+        "player": "T1 iZu",
+        "start": 750.75,
+        "end": 750.75
+    },
+    {
+        "player": "EDG Smoggy",
+        "start": 757.46,
+        "end": 760.96
+    },
+    {
+        "player": "EDG nobody",
+        "start": 795.39,
+        "end": 796.7
+    },
+    {
+        "player": "T1 Meteor",
+        "start": 812.51,
+        "end": 815.81
+    },
+    {
+        "player": "T1 iZu",
+        "start": 816.62,
+        "end": 816.62
+    },
+    {
+        "player": "T1 Meteor",
+        "start": 817.42,
+        "end": 817.42
+    },
+    {
+        "player": "T1 iZu",
+        "start": 816.72,
+        "end": 816.72
+    },
+    {
+        "player": "T1 Meteor",
+        "start": 817.62,
+        "end": 818.22
+    },
+    {
+        "player": "EDG Smoggy",
+        "start": 819.22,
+        "end": 823.82
+    },
+    {
+        "player": "EDG CHICHOO",
+        "start": 824.22,
+        "end": 828.43
+    },
+    {
+        "player": "T1 BuZz",
+        "start": 828.93,
+        "end": 832.03
+    },
+    {
+        "player": "T1 Sylvan",
+        "start": 832.23,
+        "end": 832.23
+    },
+    {
+        "player": "T1 BuZz",
+        "start": 833.53,
+        "end": 834.73
+    },
+    {
+        "player": "EDG Smoggy",
+        "start": 835.03,
+        "end": 836.84
+    },
+    {
+        "player": "T1 Meteor",
+        "start": 871.57,
+        "end": 872.77
+    },
+    {
+        "player": "EDG ZmjjKK",
+        "start": 872.87,
+        "end": 885.88
+    },
+    {
+        "player": "EDG nobody",
+        "start": 886.59,
+        "end": 886.79
+    },
+    {
+        "player": "EDG ZmjjKK",
+        "start": 886.89,
+        "end": 887.69
+    },
+    {
+        "player": "EDG Smoggy",
+        "start": 887.99,
+        "end": 892.59
+    },
+    {
+        "player": "EDG nobody",
+        "start": 892.69,
+        "end": 894.89
+    },
+    {
+        "player": "EDG ZmjjKK",
+        "start": 894.99,
+        "end": 909.01
+    },
+    {
+        "player": "EDG CHICHOO",
+        "start": 909.31,
+        "end": 911.11
+    },
+    {
+        "player": "EDG ZmjjKK",
+        "start": 912.61,
+        "end": 913.51
+    },
+    {
+        "player": "EDG Smoggy",
+        "start": 913.61,
+        "end": 915.01
+    },
+    {
+        "player": "T1 Sylvan",
+        "start": 915.11,
+        "end": 918.52
+    },
+    {
+        "player": "EDG ZmjjKK",
+        "start": 919.02,
+        "end": 924.92
+    },
+    {
+        "player": "EDG nobody",
+        "start": 925.02,
+        "end": 925.22
+    },
+    {
+        "player": "EDG ZmjjKK",
+        "start": 926.03,
+        "end": 926.03
+    },
+    {
+        "player": "T1 Sylvan",
+        "start": 927.13,
+        "end": 928.73
+    },
+    {
+        "player": "EDG Smoggy",
+        "start": 929.93,
+        "end": 967.77
+    },
+    {
+        "player": "T1 BuZz",
+        "start": 970.27,
+        "end": 973.77
+    },
+    {
+        "player": "EDG CHICHOO",
+        "start": 975.47,
+        "end": 975.77
+    },
+    {
+        "player": "T1 Meteor",
+        "start": 976.38,
+        "end": 977.88
+    },
+    {
+        "player": "T1 BuZz",
+        "start": 978.38,
+        "end": 984.88
+    },
+    {
+        "player": "EDG ZmjjKK",
+        "start": 985.08,
+        "end": 990.39
+    },
+    {
+        "player": "T1 stax",
+        "start": 991.79,
+        "end": 994.69
+    },
+    {
+        "player": "T1 Meteor",
+        "start": 994.79,
+        "end": 997.7
+    },
+    {
+        "player": "EDG nobody",
+        "start": 1001.9,
+        "end": 1002.0
+    },
+    {
+        "player": "EDG Smoggy",
+        "start": 1002.4,
+        "end": 1003.1
+    },
+    {
+        "player": "EDG nobody",
+        "start": 1003.2,
+        "end": 1008.21
+    },
+    {
+        "player": "EDG Smoggy",
+        "start": 1010.71,
+        "end": 1019.82
+    },
+    {
+        "player": "T1 Meteor",
+        "start": 1019.92,
+        "end": 1023.72
+    },
+    {
+        "player": "T1 stax",
+        "start": 1027.63,
+        "end": 1027.63
+    },
+    {
+        "player": "EDG ZmjjKK",
+        "start": 1070.87,
+        "end": 1092.89
+    },
+    {
+        "player": "T1 Sylvan",
+        "start": 1092.99,
+        "end": 1093.09
+    },
+    {
+        "player": "EDG ZmjjKK",
+        "start": 1091.99,
+        "end": 1091.99
+    },
+    {
+        "player": "T1 Sylvan",
+        "start": 1093.19,
+        "end": 1098.3
+    },
+    {
+        "player": "T1 BuZz",
+        "start": 1102.7,
+        "end": 1106.31
+    },
+    {
+        "player": "EDG nobody",
+        "start": 1106.41,
+        "end": 1110.61
+    },
+    {
+        "player": "T1 Sylvan",
+        "start": 1110.71,
+        "end": 1113.41
+    },
+    {
+        "player": "EDG CHICHOO",
+        "start": 1114.11,
+        "end": 1115.91
+    },
+    {
+        "player": "EDG nobody",
+        "start": 1116.11,
+        "end": 1120.52
+    },
+    {
+        "player": "T1 Sylvan",
+        "start": 1120.92,
+        "end": 1125.92
+    },
+    {
+        "player": "EDG nobody",
+        "start": 1126.12,
+        "end": 1128.03
+    },
+    {
+        "player": "EDG ZmjjKK",
+        "start": 1130.03,
+        "end": 1131.83
+    },
+    {
+        "player": "EDG nobody",
+        "start": 1132.13,
+        "end": 1140.34
+    },
+    {
+        "player": "T1 stax",
+        "start": 1141.74,
+        "end": 1142.44
+    },
+    {
+        "player": "EDG CHICHOO",
+        "start": 1305.3,
+        "end": 1307.11
+    },
+    {
+        "player": "T1 iZu",
+        "start": 1310.61,
+        "end": 1320.72
+    },
+    {
+        "player": "EDG Smoggy",
+        "start": 1326.12,
+        "end": 1326.53
+    },
+    {
+        "player": "EDG ZmjjKK",
+        "start": 1326.83,
+        "end": 1331.33
+    },
+    {
+        "player": "EDG Smoggy",
+        "start": 1331.73,
+        "end": 1334.63
+    },
+    {
+        "player": "T1 Sylvan",
+        "start": 1334.73,
+        "end": 1337.34
+    },
+    {
+        "player": "T1 Meteor",
+        "start": 1337.44,
+        "end": 1339.24
+    },
+    {
+        "player": "EDG CHICHOO",
+        "start": 1341.14,
+        "end": 1342.84
+    },
+    {
+        "player": "EDG nobody",
+        "start": 1343.64,
+        "end": 1344.34
+    },
+    {
+        "player": "T1 Sylvan",
+        "start": 1344.84,
+        "end": 1346.04
+    },
+    {
+        "player": "EDG CHICHOO",
+        "start": 1346.14,
+        "end": 1391.09
+    },
+    {
+        "player": "T1 Sylvan",
+        "start": 1395.69,
+        "end": 1396.6
+    },
+    {
+        "player": "T1 BuZz",
+        "start": 1396.8,
+        "end": 1410.91
+    },
+    {
+        "player": "EDG Smoggy",
+        "start": 1411.11,
+        "end": 1413.31
+    },
+    {
+        "player": "T1 Sylvan",
+        "start": 1413.81,
+        "end": 1415.21
+    },
+    {
+        "player": "T1 Meteor",
+        "start": 1415.31,
+        "end": 1415.31
+    },
+    {
+        "player": "T1 Sylvan",
+        "start": 1414.51,
+        "end": 1414.51
+    },
+    {
+        "player": "T1 Meteor",
+        "start": 1415.91,
+        "end": 1416.31
+    },
+    {
+        "player": "EDG ZmjjKK",
+        "start": 1416.52,
+        "end": 1416.52
+    },
+    {
+        "player": "EDG nobody",
+        "start": 1417.22,
+        "end": 1418.22
+    },
+    {
+        "player": "EDG Smoggy",
+        "start": 1421.52,
+        "end": 1423.22
+    },
+    {
+        "player": "T1 Sylvan",
+        "start": 1423.32,
+        "end": 1424.32
+    },
+    {
+        "player": "EDG Smoggy",
+        "start": 1424.42,
+        "end": 1427.13
+    },
+    {
+        "player": "T1 Sylvan",
+        "start": 1428.13,
+        "end": 1432.03
+    },
+    {
+        "player": "EDG Smoggy",
+        "start": 1432.13,
+        "end": 1433.13
+    },
+    {
+        "player": "T1 stax",
+        "start": 1435.03,
+        "end": 1437.94
+    },
+    {
+        "player": "EDG ZmjjKK",
+        "start": 1438.34,
+        "end": 1438.64
+    },
+    {
+        "player": "EDG Smoggy",
+        "start": 1482.78,
+        "end": 1489.59
+    },
+    {
+        "player": "EDG nobody",
+        "start": 1489.89,
+        "end": 1490.19
+    },
+    {
+        "player": "EDG Smoggy",
+        "start": 1489.49,
+        "end": 1489.49
+    },
+    {
+        "player": "EDG nobody",
+        "start": 1490.29,
+        "end": 1503.2
+    },
+    {
+        "player": "T1 BuZz",
+        "start": 1503.5,
+        "end": 1506.3
+    },
+    {
+        "player": "EDG nobody",
+        "start": 1506.71,
+        "end": 1513.61
+    },
+    {
+        "player": "EDG ZmjjKK",
+        "start": 1513.91,
+        "end": 1513.91
+    },
+    {
+        "player": "EDG nobody",
+        "start": 1513.31,
+        "end": 1513.31
+    },
+    {
+        "player": "EDG ZmjjKK",
+        "start": 1515.11,
+        "end": 1520.12
+    },
+    {
+        "player": "EDG nobody",
+        "start": 1520.72,
+        "end": 1525.72
+    },
+    {
+        "player": "EDG CHICHOO",
+        "start": 1526.02,
+        "end": 1527.23
+    },
+    {
+        "player": "EDG nobody",
+        "start": 1527.33,
+        "end": 1529.93
+    },
+    {
+        "player": "EDG CHICHOO",
+        "start": 1530.43,
+        "end": 1538.94
+    },
+    {
+        "player": "EDG Smoggy",
+        "start": 1539.64,
+        "end": 1546.14
+    },
+    {
+        "player": "EDG CHICHOO",
+        "start": 1546.24,
+        "end": 1546.95
+    },
+    {
+        "player": "EDG Smoggy",
+        "start": 1547.05,
+        "end": 1548.75
+    },
+    {
+        "player": "EDG CHICHOO",
+        "start": 1548.85,
+        "end": 1553.55
+    },
+    {
+        "player": "T1 BuZz",
+        "start": 1553.65,
+        "end": 1566.46
+    },
+    {
+        "player": "T1 stax",
+        "start": 1600.6,
+        "end": 1600.6
+    },
+    {
+        "player": "EDG Smoggy",
+        "start": 1600.9,
+        "end": 1602.7
+    },
+    {
+        "player": "EDG CHICHOO",
+        "start": 1602.9,
+        "end": 1605.3
+    },
+    {
+        "player": "EDG Smoggy",
+        "start": 1607.21,
+        "end": 1609.61
+    },
+    {
+        "player": "T1 Sylvan",
+        "start": 1614.61,
+        "end": 1618.82
+    },
+    {
+        "player": "EDG ZmjjKK",
+        "start": 1619.42,
+        "end": 1628.03
+    },
+    {
+        "player": "EDG Smoggy",
+        "start": 1628.53,
+        "end": 1630.53
+    },
+    {
+        "player": "T1 stax",
+        "start": 1630.73,
+        "end": 1634.03
+    },
+    {
+        "player": "T1 BuZz",
+        "start": 1642.14,
+        "end": 1642.64
+    },
+    {
+        "player": "EDG CHICHOO",
+        "start": 1642.74,
+        "end": 1649.35
+    },
+    {
+        "player": "EDG ZmjjKK",
+        "start": 1650.75,
+        "end": 1657.36
+    },
+    {
+        "player": "T1 BuZz",
+        "start": 1658.26,
+        "end": 1658.26
+    },
+    {
+        "player": "EDG ZmjjKK",
+        "start": 1658.36,
+        "end": 1662.26
+    },
+    {
+        "player": "T1 Sylvan",
+        "start": 1662.36,
+        "end": 1703.2
+    },
+    {
+        "player": "EDG CHICHOO",
+        "start": 1737.84,
+        "end": 1739.64
+    },
+    {
+        "player": "T1 Meteor",
+        "start": 1739.84,
+        "end": 1744.94
+    },
+    {
+        "player": "EDG ZmjjKK",
+        "start": 1746.54,
+        "end": 1746.54
+    },
+    {
+        "player": "T1 Meteor",
+        "start": 1748.15,
+        "end": 1751.05
+    },
+    {
+        "player": "EDG Smoggy",
+        "start": 1751.85,
+        "end": 1751.85
+    },
+    {
+        "player": "T1 Meteor",
+        "start": 1752.05,
+        "end": 1752.85
+    },
+    {
+        "player": "EDG ZmjjKK",
+        "start": 1756.45,
+        "end": 1762.26
+    },
+    {
+        "player": "EDG Smoggy",
+        "start": 1763.36,
+        "end": 1767.77
+    },
+    {
+        "player": "T1 Sylvan",
+        "start": 1772.97,
+        "end": 1773.57
+    },
+    {
+        "player": "EDG nobody",
+        "start": 1774.97,
+        "end": 1781.08
+    },
+    {
+        "player": "T1 Sylvan",
+        "start": 1781.18,
+        "end": 1785.78
+    },
+    {
+        "player": "EDG CHICHOO",
+        "start": 1788.89,
+        "end": 1794.59
+    },
+    {
+        "player": "EDG nobody",
+        "start": 1794.69,
+        "end": 1802.1
+    },
+    {
+        "player": "EDG CHICHOO",
+        "start": 1802.3,
+        "end": 1810.61
+    },
+    {
+        "player": "T1 Sylvan",
+        "start": 1811.71,
+        "end": 1820.62
+    },
+    {
+        "player": "EDG CHICHOO",
+        "start": 1820.92,
+        "end": 1821.02
+    },
+    {
+        "player": "T1 Sylvan",
+        "start": 1820.52,
+        "end": 1820.52
+    },
+    {
+        "player": "EDG CHICHOO",
+        "start": 1821.12,
+        "end": 1821.32
+    },
+    {
+        "player": "T1 Sylvan",
+        "start": 1824.32,
+        "end": 1824.92
+    },
+    {
+        "player": "EDG CHICHOO",
+        "start": 1825.02,
+        "end": 1830.83
+    },
+    {
+        "player": "EDG Smoggy",
+        "start": 1830.93,
+        "end": 1831.43
+    },
+    {
+        "player": "EDG CHICHOO",
+        "start": 1831.53,
+        "end": 1833.13
+    },
+    {
+        "player": "EDG Smoggy",
+        "start": 1833.33,
+        "end": 1871.17
+    },
+    {
+        "player": "T1 BuZz",
+        "start": 1967.87,
+        "end": 1967.87
+    },
+    {
+        "player": "EDG ZmjjKK",
+        "start": 1971.57,
+        "end": 1977.58
+    },
+    {
+        "player": "T1 Meteor",
+        "start": 1978.08,
+        "end": 1978.58
+    },
+    {
+        "player": "T1 BuZz",
+        "start": 1980.08,
+        "end": 1980.68
+    },
+    {
+        "player": "EDG Smoggy",
+        "start": 1984.88,
+        "end": 1987.29
+    },
+    {
+        "player": "EDG ZmjjKK",
+        "start": 1987.49,
+        "end": 1993.89
+    },
+    {
+        "player": "T1 Sylvan",
+        "start": 2038.04,
+        "end": 2044.64
+    },
+    {
+        "player": "T1 BuZz",
+        "start": 2047.75,
+        "end": 2048.85
+    },
+    {
+        "player": "EDG ZmjjKK",
+        "start": 2050.05,
+        "end": 2052.35
+    },
+    {
+        "player": "T1 Sylvan",
+        "start": 2052.75,
+        "end": 2055.45
+    },
+    {
+        "player": "EDG CHICHOO",
+        "start": 2058.56,
+        "end": 2077.48
+    },
+    {
+        "player": "T1 stax",
+        "start": 2078.78,
+        "end": 2084.88
+    },
+    {
+        "player": "T1 iZu",
+        "start": 2133.63,
+        "end": 2133.63
+    },
+    {
+        "player": "EDG Smoggy",
+        "start": 2134.83,
+        "end": 2139.34
+    },
+    {
+        "player": "T1 BuZz",
+        "start": 2139.44,
+        "end": 2140.14
+    },
+    {
+        "player": "EDG Smoggy",
+        "start": 2140.24,
+        "end": 2142.64
+    },
+    {
+        "player": "EDG CHICHOO",
+        "start": 2142.74,
+        "end": 2143.64
+    },
+    {
+        "player": "EDG Smoggy",
+        "start": 2143.84,
+        "end": 2146.94
+    },
+    {
+        "player": "EDG CHICHOO",
+        "start": 2147.04,
+        "end": 2163.76
+    },
+    {
+        "player": "EDG Smoggy",
+        "start": 2165.66,
+        "end": 2170.07
+    },
+    {
+        "player": "EDG CHICHOO",
+        "start": 2171.27,
+        "end": 2171.87
+    },
+    {
+        "player": "T1 Meteor",
+        "start": 2172.17,
+        "end": 2173.27
+    },
+    {
+        "player": "T1 stax",
+        "start": 2173.47,
+        "end": 2177.17
+    },
+    {
+        "player": "EDG ZmjjKK",
+        "start": 2178.08,
+        "end": 2530.23
+    },
+    {
+        "player": "EDG Smoggy",
+        "start": 2532.73,
+        "end": 2536.93
+    },
+    {
+        "player": "EDG ZmjjKK",
+        "start": 2537.03,
+        "end": 2541.04
+    },
+    {
+        "player": "EDG nobody",
+        "start": 2541.24,
+        "end": 2547.04
+    },
+    {
+        "player": "EDG Smoggy",
+        "start": 2547.85,
+        "end": 2548.15
+    },
+    {
+        "player": "EDG nobody",
+        "start": 2548.65,
+        "end": 2551.55
+    },
+    {
+        "player": "EDG Smoggy",
+        "start": 2551.85,
+        "end": 2932.23
+    },
+    {
+        "player": "EDG ZmjjKK",
+        "start": 2935.83,
+        "end": 2943.34
+    },
+    {
+        "player": "T1 stax",
+        "start": 2997.79,
+        "end": 2997.79
+    },
+    {
+        "player": "T1 BuZz",
+        "start": 2998.8,
+        "end": 3004.9
+    },
+    {
+        "player": "T1 Sylvan",
+        "start": 3005.0,
+        "end": 3021.42
+    },
+    {
+        "player": "EDG ZmjjKK",
+        "start": 3023.62,
+        "end": 3025.12
+    },
+    {
+        "player": "T1 stax",
+        "start": 3032.83,
+        "end": 3033.43
+    },
+    {
+        "player": "T1 Meteor",
+        "start": 3040.54,
+        "end": 3079.68
+    },
+    {
+        "player": "T1 Sylvan",
+        "start": 3090.09,
+        "end": 3090.09
+    },
+    {
+        "player": "EDG CHICHOO",
+        "start": 3091.99,
+        "end": 3093.69
+    },
+    {
+        "player": "T1 Meteor",
+        "start": 3094.29,
+        "end": 3097.29
+    },
+    {
+        "player": "T1 iZu",
+        "start": 3099.1,
+        "end": 3099.4
+    },
+    {
+        "player": "EDG CHICHOO",
+        "start": 3104.7,
+        "end": 3129.83
+    },
+    {
+        "player": "EDG ZmjjKK",
+        "start": 3130.43,
+        "end": 3135.73
+    },
+    {
+        "player": "EDG Smoggy",
+        "start": 3135.83,
+        "end": 3138.34
+    },
+    {
+        "player": "T1 BuZz",
+        "start": 3138.44,
+        "end": 3143.04
+    },
+    {
+        "player": "EDG nobody",
+        "start": 3143.44,
+        "end": 3143.94
+    },
+    {
+        "player": "EDG Smoggy",
+        "start": 3179.18,
+        "end": 3179.18
+    },
+    {
+        "player": "T1 BuZz",
+        "start": 3180.78,
+        "end": 3183.68
+    },
+    {
+        "player": "EDG ZmjjKK",
+        "start": 3184.98,
+        "end": 3186.68
+    },
+    {
+        "player": "T1 Sylvan",
+        "start": 3187.28,
+        "end": 3193.29
+    },
+    {
+        "player": "EDG ZmjjKK",
+        "start": 3193.59,
+        "end": 3196.99
+    },
+    {
+        "player": "EDG Smoggy",
+        "start": 3197.09,
+        "end": 3202.1
+    },
+    {
+        "player": "EDG ZmjjKK",
+        "start": 3206.9,
+        "end": 3217.11
+    },
+    {
+        "player": "T1 Meteor",
+        "start": 3224.02,
+        "end": 3226.72
+    },
+    {
+        "player": "EDG ZmjjKK",
+        "start": 3226.82,
+        "end": 3231.93
+    },
+    {
+        "player": "EDG CHICHOO",
+        "start": 3232.03,
+        "end": 3234.93
+    },
+    {
+        "player": "EDG Smoggy",
+        "start": 3247.04,
+        "end": 3248.75
+    },
+    {
+        "player": "EDG CHICHOO",
+        "start": 3282.88,
+        "end": 3284.28
+    },
+    {
+        "player": "T1 BuZz",
+        "start": 3284.38,
+        "end": 3287.88
+    },
+    {
+        "player": "EDG ZmjjKK",
+        "start": 3289.09,
+        "end": 3294.39
+    },
+    {
+        "player": "EDG Smoggy",
+        "start": 3301.1,
+        "end": 3308.41
+    },
+    {
+        "player": "T1 iZu",
+        "start": 3312.41,
+        "end": 3312.41
+    },
+    {
+        "player": "EDG Smoggy",
+        "start": 3313.21,
+        "end": 3315.71
+    },
+    {
+        "player": "T1 Sylvan",
+        "start": 3315.81,
+        "end": 3328.43
+    },
+    {
+        "player": "T1 iZu",
+        "start": 3331.53,
+        "end": 3331.53
+    },
+    {
+        "player": "T1 stax",
+        "start": 3336.53,
+        "end": 3339.04
+    },
+    {
+        "player": "T1 BuZz",
+        "start": 3346.54,
+        "end": 3351.45
+    },
+    {
+        "player": "EDG nobody",
+        "start": 3351.55,
+        "end": 3354.45
+    },
+    {
+        "player": "T1 Sylvan",
+        "start": 3354.95,
+        "end": 3357.65
+    },
+    {
+        "player": "T1 Meteor",
+        "start": 3357.75,
+        "end": 3363.16
+    },
+    {
+        "player": "EDG CHICHOO",
+        "start": 3364.16,
+        "end": 3365.16
+    },
+    {
+        "player": "T1 Meteor",
+        "start": 3365.66,
+        "end": 3376.27
+    },
+    {
+        "player": "EDG CHICHOO",
+        "start": 3376.77,
+        "end": 3382.08
+    },
+    {
+        "player": "EDG Smoggy",
+        "start": 3418.52,
+        "end": 3425.42
+    },
+    {
+        "player": "T1 Sylvan",
+        "start": 3425.62,
+        "end": 3429.83
+    },
+    {
+        "player": "EDG ZmjjKK",
+        "start": 3430.03,
+        "end": 3441.34
+    },
+    {
+        "player": "T1 BuZz",
+        "start": 3441.64,
+        "end": 3451.25
+    },
+    {
+        "player": "EDG ZmjjKK",
+        "start": 3455.15,
+        "end": 3460.76
+    },
+    {
+        "player": "T1 Sylvan",
+        "start": 3460.86,
+        "end": 3476.27
+    },
+    {
+        "player": "T1 BuZz",
+        "start": 3476.37,
+        "end": 3477.07
+    },
+    {
+        "player": "T1 Meteor",
+        "start": 3477.27,
+        "end": 3477.27
+    },
+    {
+        "player": "T1 BuZz",
+        "start": 3477.17,
+        "end": 3477.17
+    },
+    {
+        "player": "T1 Meteor",
+        "start": 3477.37,
+        "end": 3484.18
+    },
+    {
+        "player": "T1 BuZz",
+        "start": 3484.28,
+        "end": 3485.08
+    },
+    {
+        "player": "T1 stax",
+        "start": 3485.48,
+        "end": 3489.69
+    },
+    {
+        "player": "T1 BuZz",
+        "start": 3490.09,
+        "end": 3518.21
+    },
+    {
+        "player": "EDG Smoggy",
+        "start": 3518.82,
+        "end": 3560.06
+    },
+    {
+        "player": "EDG nobody",
+        "start": 3560.16,
+        "end": 3564.86
+    },
+    {
+        "player": "T1 Sylvan",
+        "start": 3564.96,
+        "end": 3566.06
+    },
+    {
+        "player": "EDG nobody",
+        "start": 3566.26,
+        "end": 3571.37
+    },
+    {
+        "player": "T1 Sylvan",
+        "start": 3571.47,
+        "end": 3576.47
+    },
+    {
+        "player": "T1 stax",
+        "start": 3576.57,
+        "end": 3576.67
+    },
+    {
+        "player": "T1 Sylvan",
+        "start": 3577.37,
+        "end": 3583.08
+    },
+    {
+        "player": "EDG ZmjjKK",
+        "start": 3583.18,
+        "end": 3584.68
+    },
+    {
+        "player": "T1 Meteor",
+        "start": 3584.78,
+        "end": 3587.18
+    },
+    {
+        "player": "T1 Sylvan",
+        "start": 3587.28,
+        "end": 3587.88
+    },
+    {
+        "player": "T1 Meteor",
+        "start": 3587.98,
+        "end": 3592.49
+    },
+    {
+        "player": "T1 Sylvan",
+        "start": 3592.59,
+        "end": 3593.39
+    },
+    {
+        "player": "EDG nobody",
+        "start": 3593.49,
+        "end": 3598.39
+    },
+    {
+        "player": "T1 BuZz",
+        "start": 3598.59,
+        "end": 3600.0
     }
 ]
