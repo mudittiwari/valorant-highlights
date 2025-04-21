@@ -1,6 +1,14 @@
 import os
 import subprocess
 import sys
+import logging
+
+
+logging.basicConfig(
+    level=logging.DEBUG,
+    format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",
+)
+logger = logging.getLogger(__name__)
 
 
 def download_and_merge(url: str, start: str, end: str):
@@ -11,7 +19,7 @@ def download_and_merge(url: str, start: str, end: str):
     OUTPUT_FILE = os.path.abspath("clipped.mp4")
     print("FFmpeg is running from:", os.getcwd())
     # Download video
-    print(f"Downloading video from {start} to {end}...")
+    logger.info(f"Downloading video from {start} to {end}...")
     video_cmd = [
         "yt-dlp", "--quiet", "--no-warnings",
         "--no-part",
@@ -20,10 +28,10 @@ def download_and_merge(url: str, start: str, end: str):
         "-o", VIDEO_FILE,
         url
     ]
-    subprocess.run(video_cmd, check=True)
+    subprocess.run(video_cmd, check=True, stdout=subprocess.DEVNULL)
     print(f"Downloading audio from {start} to {end}...")
     audio_cmd = [
-        "yt-dlp", "--quiet", "--no-warnings",
+        "yt-dlp",
         "--no-part",
         "--download-sections", f"*{start}-{end}",
         "-f", AUDIO_FORMAT,

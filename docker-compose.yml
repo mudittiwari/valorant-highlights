@@ -1,0 +1,47 @@
+services:
+  api:
+    build: .
+    command: uvicorn server:app --host 0.0.0.0 --port 8082 --log-level debug --reload
+    ports:
+      - "8082:8082"
+    depends_on:
+      - redis
+    environment:
+      - SMTP_SERVER=smtp.gmail.com
+      - SMTP_PORT=465
+      - EMAIL_USER=mudit.alwar31@gmail.com
+      - EMAIL_PASS="zzvy sjut yqpq fdzz"
+      - GOFILE_TOKEN=ysAXnMYtDcKAuKT5MLPHKKioRI4TkOVB
+      - FOLDER_ID="9a93baa5-9c4e-455c-b885-b455ac6112e4"
+      - REDIS_URL=redis://redis:6379
+    volumes:
+      - .:/app
+    tty: true
+    stdin_open: true
+
+  worker:
+    build: .
+    depends_on:
+      - redis
+    command: >
+      bash -c "export PYTHONUNBUFFERED=1 && rq worker video_tasks"
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+      - SMTP_SERVER=smtp.gmail.com
+      - SMTP_PORT=465
+      - EMAIL_USER=mudit.alwar31@gmail.com
+      - EMAIL_PASS=zzvy sjut yqpq fdzz
+      - GOFILE_TOKEN=ysAXnMYtDcKAuKT5MLPHKKioRI4TkOVB
+      - FOLDER_ID="9a93baa5-9c4e-455c-b885-b455ac6112e4"
+      - REDIS_URL=redis://redis:6379
+    runtime: nvidia
+    volumes:
+      - .:/app
+    tty: true
+    stdin_open: true
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6380:6379"
+

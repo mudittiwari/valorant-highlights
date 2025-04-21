@@ -9,14 +9,23 @@ from redis import Redis
 from rq import Queue
 from worker import process_video_task
 from fastapi.middleware.cors import CORSMiddleware
+import logging
+
+logging.basicConfig(
+    level=logging.DEBUG,
+    format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",
+)
+
+logger = logging.getLogger(__name__)
 
 
-redis_conn = Redis()
+
+redis_conn = Redis(host="redis", port=6379)
 task_queue = Queue("video_tasks", connection=redis_conn)
 app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Or set specific domains
+    allow_origins=["*"], 
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -32,8 +41,15 @@ class ProcessRequest(BaseModel):
     player_names: list[str]
     email: str
 
+
+@app.on_event("startup")
+async def startup_event():
+    logger.info("✅ FastAPI server is starting...")
+
+
 @app.post("/process")
 def enqueue_job(req: ProcessRequest):
+    # logger.info("hello how are you")
     ip = "user"
     rate_key = f"ratelimit:{ip}"
     if redis_conn.exists(rate_key):
