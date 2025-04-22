@@ -1,0 +1,21 @@
+name: cpuenv
+channels:
+  - conda-forge
+  - defaults
+channel_priority: strict
+
+dependencies:
+  - python=3.10
+  - pip
+  - pytorch
+  - torchvision
+  - torchaudio
+  - numpy
+  - pandas
+  - scikit-learn
+  - fastapi
+  - uvicorn
+  - redis-py
+  - pydantic
+  - pip:
+      - rq
