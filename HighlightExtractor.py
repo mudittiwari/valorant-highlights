@@ -268,17 +268,16 @@ class HighlightExtractor:
 
     def process_video(self, video_path, player_json, known_players=[]):
         """Process video and extract speaker names using multiprocessing (10 workers)."""
+        print("CPU Count : ", os.cpu_count()) 
         frames, timestamps = self.extract_frames(video_path)
-        print("frames is preparing")
-        mp.set_start_method("spawn", force=True)
-        with concurrent.futures.ProcessPoolExecutor(max_workers=10) as executor:
+        # mp.set_start_method("spawn", force=True)
+        with concurrent.futures.ThreadPoolExecutor(max_workers=10) as executor:
             future_to_index = {
                 executor.submit(self.process_frame, frame, timestamps[i], i): i
                 for i, frame in enumerate(frames)
             }
             for future in concurrent.futures.as_completed(future_to_index):
                 i = future_to_index[future]
-                print("frame is preparing")
                 try:
                     result = future.result()
                     if result and result.get("player"):

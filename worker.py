@@ -26,19 +26,24 @@ def process_video_task(youtube_url, start_time, end_time, player_names, email):
     os.environ["CUDA_VISIBLE_DEVICES"] = "2"
     logger.info("CUDA Available:", torch.cuda.is_available())
     video_path = "clipped.mp4"
-    # trimmed_path_video = "video_trimmed.mp4"
+    # # trimmed_path_video = "video_trimmed.mp4"
     temp_path_video = "video_temp.mp4"
     temp_path_audio = "audio_temp.mp4"
     json_log = "player_log.json"
     extractor = HighlightExtractor(video_path)
     extractor.delete_files(delete_files=[temp_path_video, video_path, temp_path_audio])
     download_and_merge(youtube_url, start_time, end_time)
+
+
     # duration = hhmmss_to_seconds(start_time, end_time)
     # extractor.trim_video(video_path, trimmed_path_video, duration=duration)
+
+
     extractor.process_video(video_path, json_log, player_names)
     extractor.split_video_by_speaker_log(video_path, json_log)
     logger.info(f"✅ Job complete in {round(time.time() - start_clock, 2)} sec.")
     zip_file_location = create_zip()
+    print(zip_file_location)
     gofile_response = upload_to_gofile(zip_file_location,os.getenv("GOFILE_TOKEN"))
     # "downloadPage": file_info["downloadPage"],
     #         "fileId": file_info["id"],
@@ -75,8 +80,6 @@ def send_email_with_zip_link(to_email, zip_download_url):
 
         Enjoy!
         """)
-    print(os.getenv("EMAIL_USER"))
-    print(os.getenv("EMAIL_PASS"))
     with smtplib.SMTP_SSL(os.getenv("SMTP_SERVER"), int(os.getenv("SMTP_PORT"))) as smtp:
         smtp.login(os.getenv("EMAIL_USER"), os.getenv("EMAIL_PASS"))
         smtp.send_message(msg)

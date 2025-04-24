@@ -1,72 +1,87 @@
 [
     {
         "player": "EDG Smoggy",
-        "start": 0.2,
-        "end": 2.3
-    },
-    {
-        "player": "EDG nobody",
-        "start": 2.5,
-        "end": 3.6
-    },
-    {
-        "player": "EDG Smoggy",
         "start": 0.9,
-        "end": 0.9
+        "end": 2.4
     },
     {
         "player": "EDG nobody",
-        "start": 3.7,
-        "end": 4.0
-    },
-    {
-        "player": "EDG Smoggy",
-        "start": 0.7,
-        "end": 0.7
-    },
-    {
-        "player": "EDG nobody",
-        "start": 4.2,
-        "end": 4.2
-    },
-    {
-        "player": "EDG Smoggy",
-        "start": 0.6,
-        "end": 0.6
-    },
-    {
-        "player": "EDG nobody",
-        "start": 4.6,
-        "end": 5.31
-    },
-    {
-        "player": "EDG Smoggy",
-        "start": 0.8,
-        "end": 0.8
-    },
-    {
-        "player": "EDG nobody",
-        "start": 5.41,
+        "start": 2.6,
         "end": 5.81
     },
     {
         "player": "EDG CHICHOO",
         "start": 6.41,
-        "end": 12.21
+        "end": 12.41
     },
     {
         "player": "EDG Smoggy",
         "start": 14.51,
-        "end": 16.22
+        "end": 16.02
+    },
+    {
+        "player": "T1 BuZz",
+        "start": 16.42,
+        "end": 16.42
+    },
+    {
+        "player": "EDG Smoggy",
+        "start": 15.92,
+        "end": 16.12
     },
     {
         "player": "T1 BuZz",
         "start": 16.32,
+        "end": 16.32
+    },
+    {
+        "player": "EDG Smoggy",
+        "start": 16.22,
+        "end": 16.22
+    },
+    {
+        "player": "T1 BuZz",
+        "start": 16.52,
         "end": 50.15
     },
     {
         "player": "EDG ZmjjKK",
-        "start": 55.05,
-        "end": 56.16
+        "start": 54.75,
+        "end": 54.75
+    },
+    {
+        "player": "T1 Sylvan",
+        "start": 84.18,
+        "end": 86.29
+    },
+    {
+        "player": "EDG ZmjjKK",
+        "start": 86.39,
+        "end": 95.6
+    },
+    {
+        "player": "EDG Smoggy",
+        "start": 95.8,
+        "end": 98.0
+    },
+    {
+        "player": "EDG nobody",
+        "start": 98.1,
+        "end": 100.2
+    },
+    {
+        "player": "EDG Smoggy",
+        "start": 104.1,
+        "end": 107.31
+    },
+    {
+        "player": "EDG ZmjjKK",
+        "start": 107.51,
+        "end": 113.51
+    },
+    {
+        "player": "EDG CHICHOO",
+        "start": 113.71,
+        "end": 118.12
     }
 ]

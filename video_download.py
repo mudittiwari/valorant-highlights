@@ -13,15 +13,28 @@ logger = logging.getLogger(__name__)
 
 def download_and_merge(url: str, start: str, end: str):
     VIDEO_FORMAT = "311"
-    AUDIO_FORMAT = "234"
+    AUDIO_FORMAT = "140"
     VIDEO_FILE = os.path.abspath("video_temp.mp4")
     AUDIO_FILE = os.path.abspath("audio_temp.mp4")
     OUTPUT_FILE = os.path.abspath("clipped.mp4")
     print("FFmpeg is running from:", os.getcwd())
     # Download video
     logger.info(f"Downloading video from {start} to {end}...")
+    url = "https://www.youtube.com/watch?v=dXYllcjtR-o"
+    try:
+        result = subprocess.run(
+            ["yt-dlp", "-F", url],
+            check=True,
+            capture_output=True,
+            text=True
+        )
+        print("Available formats:")
+        print(result.stdout)
+    except subprocess.CalledProcessError as e:
+        print("yt-dlp command failed with error:")
+        print(e.stderr)
     video_cmd = [
-        "yt-dlp", "--quiet", "--no-warnings",
+        "yt-dlp",
         "--no-part",
         "--download-sections", f"*{start}-{end}",
         "-f", VIDEO_FORMAT,
@@ -38,7 +51,7 @@ def download_and_merge(url: str, start: str, end: str):
         "-o", AUDIO_FILE,
         url
     ]
-    subprocess.run(audio_cmd, check=True)
+    subprocess.run(audio_cmd, check=True, stdout=subprocess.DEVNULL)
     if not os.path.isfile(VIDEO_FILE) or not os.path.isfile(AUDIO_FILE):
         print("Error: One or both files failed to download.")
         sys.exit(1)

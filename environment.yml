@@ -347,7 +347,7 @@ dependencies:
       - typing-inspection==0.4.0
       - tzdata==2025.1
       - undetected-chromedriver==3.5.5
-      - uvicorn==0.34.0
+      - uvicorn==0.34.0s
       - webdriver-manager==4.0.2
       - websocket-client==1.8.0
       - websockets==15.0.1
