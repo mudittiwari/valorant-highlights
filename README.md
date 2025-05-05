@@ -1,32 +1,14 @@
-# Automated Meeting Recorder, Transcriber, and Speaker Diarization
+things to do in this project in future:
 
-This project automates the recording of online meetings, transcribes the audio, identifies speakers, and merges the information into a structured transcript.
+create and validate apis for creating matches and check if the linking is done properly or not.
+create api for deleting the match also
+write logic to automatically delete the matches info after 7 days and also the zip file
+create logic for editing the user info including the password reset and forget
 
-## Features
 
-- **Automated Meeting Recording**: Uses Selenium and browser automation to record meetings.
-- **Transcription & Speaker Diarization**: Uses Whisper for transcription and Pyannote for speaker diarization.
-- **Speaker Identification from Video**: Uses OCR to extract the name of the currently speaking person.
-- **Final Transcript Generation**: Merges transcription and speaker logs into a structured output.
-
----
-
-## Installation
-
-### Prerequisites
-- Python 3.8+
-- `pip` and `virtualenv`
-- Selenium WebDriver (Chrome/Firefox)
-- FFmpeg
-- Whisper & Pyannote (Hugging Face)
-- Easy OCR
-- OpenCV
-
-### Setup
-```bash
-# Create a virtual environment
-python -m venv env
-source env/bin/activate  # On Windows use: env\Scripts\activate
-
-# Install dependencies
-pip install -r requirements.txt
+connect the frontend to the backend
+complete login and signup page setup
+complete the homepage
+complete the dashboard page
+create logic to add a status in the match schema to show if the processing is done or not
+create logic for logout in the client side

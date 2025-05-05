@@ -10,6 +10,8 @@ import os
 import subprocess
 from file_upload import upload_to_gofile
 import logging
+from crud import update_match_status, update_match_zip_file
+from models import MatchStatus
 
 
 load_dotenv()
@@ -20,7 +22,7 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 logger.info("worker is running")
 
-def process_video_task(youtube_url, start_time, end_time, player_names, email):
+async def process_video_task(youtube_url, start_time, end_time, player_names, email, match_id):
     logger.info("Starting job...")
     start_clock = time.time()
     os.environ["CUDA_VISIBLE_DEVICES"] = "2"
@@ -49,7 +51,9 @@ def process_video_task(youtube_url, start_time, end_time, player_names, email):
     #         "fileId": file_info["id"],
     #         "fileName": file_info["name"],
     #         "folderId": file_info["parentFolder"],
-    send_email_with_zip_link(email,gofile_response["downloadPage"])
+    send_email_with_zip_link(email, gofile_response["downloadPage"])
+    await update_match_status(match_id, MatchStatus.successfully_done)
+    await update_match_zip_file(match_id, gofile_response["downloadPage"] )
 
 
 def create_zip(output_zip_path="results.zip"):

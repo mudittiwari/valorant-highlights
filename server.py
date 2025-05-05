@@ -1,4 +1,4 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Depends
 from pydantic import BaseModel
 import os
 import time
@@ -10,6 +10,12 @@ from rq import Queue
 from worker import process_video_task
 from fastapi.middleware.cors import CORSMiddleware
 import logging
+from routes.user_routes import router as user_router
+from routes.match_routes import router as match_router
+from crud import create_match, get_user_matches, get_user_by_email, update_match_status
+from models import ProcessRequest
+from dependencies import create_match_from_request, get_current_user
+from fastapi.middleware.cors import CORSMiddleware
 
 logging.basicConfig(
     level=logging.DEBUG,
@@ -17,6 +23,7 @@ logging.basicConfig(
 )
 
 logger = logging.getLogger(__name__)
+logging.getLogger("pymongo").setLevel(logging.ERROR)
 
 
 
@@ -33,13 +40,19 @@ app.add_middleware(
 
 QUEUE_THRESHOLD = 30
 RATE_LIMIT_SECONDS = 1
-
-class ProcessRequest(BaseModel):
-    youtube_url: str
-    start_time: str
-    end_time: str
-    player_names: list[str]
-    email: str
+app.include_router(user_router, prefix="/users", tags=["users"])
+app.include_router(match_router, prefix="/matches", tags=["matches"])
+origins = [
+    "http://localhost:3000",  # React dev server
+    "http://localhost:5173",  # Vite dev server (if applicable)
+]
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,        
+    allow_credentials=True,
+    allow_methods=["*"],             
+    allow_headers=["*"],           
+)
 
 
 @app.on_event("startup")
@@ -48,8 +61,12 @@ async def startup_event():
 
 
 @app.post("/process")
-def enqueue_job(req: ProcessRequest):
+async def enqueue_job(req: ProcessRequest, current_user: dict = Depends(get_current_user)):
     # logger.info("hello how are you")
+    user = await get_user_by_email(req.email)
+    if not user:
+        raise HTTPException(status_code=400, detail="User does not exist")
+    created_match = await create_match(create_match_from_request(req, req.email))
     ip = "user"
     rate_key = f"ratelimit:{ip}"
     if redis_conn.exists(rate_key):
@@ -57,11 +74,10 @@ def enqueue_job(req: ProcessRequest):
     redis_conn.set(rate_key, 1, ex=RATE_LIMIT_SECONDS)
     if len(task_queue.jobs) >= QUEUE_THRESHOLD:
         raise HTTPException(status_code=503, detail="Too many requests in queue. Try again later.")
-    
     job = task_queue.enqueue_call(
         func=process_video_task,
-        args=(req.youtube_url, req.start_time, req.end_time, req.player_names, req.email),
+        args=(req.youtube_url, req.start_time, req.end_time, req.player_names, req.email, created_match.id),
         timeout=3600
     )
-    # print(job)
-    return {"job_id": job.get_id(), "status": "queued"}
+    # print(created_match.id)
+    return {"job_id": job.get_id(), "status": "in_queue"}

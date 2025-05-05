@@ -120,69 +120,89 @@ class HighlightExtractor:
         except Exception as e:
             print(f"Failed to save speaker log: {e}")
 
-    def split_video_by_speaker_log(self, video_path, speaker_json_path, output_dir="clips"):
-        # Load the speaker log
+    def split_video_by_speaker_log(self, video_path, speaker_json_path, output_dir="clips", auto_fix_tiny=True):
         with open(speaker_json_path, 'r') as f:
             speaker_log = json.load(f)
 
         os.makedirs(output_dir, exist_ok=True)
         VIDEO_FILE = os.path.abspath(video_path)
 
-        # Group entries by player
         player_intervals = defaultdict(list)
-        for entry in speaker_log:
-            player = entry["player"]
-            if player is not None:
-                player_intervals[player].append((entry["start"], entry["end"]))
+        skipped_count = 0
 
-        # For each player, extract all their clips
+        for entry in speaker_log:
+            player = entry.get("player")
+            start = entry.get("start")
+            end = entry.get("end")
+
+            if player and isinstance(start, (int, float)) and isinstance(end, (int, float)):
+                if end <= start:
+                    skipped_count += 1
+                    print(f"Skipping invalid segment (end <= start): {entry}")
+                    continue
+                duration = end - start
+                if duration < 0.15 and auto_fix_tiny:
+                    end = start + 0.15 
+                player_intervals[player].append((start, end))
+            else:
+                skipped_count += 1
+                print(f"Skipping malformed segment: {entry}")
+
+        if skipped_count:
+            print(f"\nSkipped {skipped_count} invalid or zero-duration entries.")
+
         for player, intervals in player_intervals.items():
-            safe_player = player.replace(" ", "_")  # For file naming
+            safe_player = player.replace(" ", "_")
             temp_files = []
 
-            print(f"🎬 Processing {player}...")
+            print(f"\nProcessing {player}...")
 
             for idx, (start, end) in enumerate(intervals):
-                duration = round(end - start, 2)
+                duration = round(end - start, 3)
                 temp_clip = os.path.abspath(os.path.join(output_dir, f"{safe_player}_part{idx}.mp4"))
-                print(temp_clip)
                 temp_files.append(temp_clip)
-                print(temp_files)
+
+                print(f"  ✂️ Clip [{idx+1}]: {start:.2f}s → {end:.2f}s → {temp_clip}")
+
                 cmd = [
                     "ffmpeg",
                     "-y",
                     "-ss", str(start),
                     "-i", VIDEO_FILE,
                     "-t", str(duration),
-                    "-c:v", "copy",
-                    "-c:a", "copy",
+                    "-vf", "scale=1280:720",
+                    "-c:v", "libx264",
+                    "-preset", "fast",
+                    "-crf", "23",
+                    "-c:a", "aac",
+                    "-b:a", "128k",
                     temp_clip
                 ]
                 subprocess.run(cmd, check=True, stdin=subprocess.DEVNULL)
-                print("video saved successfully")
 
-            # Merge all parts into one video using ffmpeg concat
+            final_path = os.path.join(output_dir, f"{safe_player}.mp4")
+
             if len(temp_files) == 1:
-                os.rename(temp_files[0], os.path.join(output_dir, f"{safe_player}.mp4"))
+                os.rename(temp_files[0], final_path)
             else:
-                list_file = os.path.abspath(os.path.join(output_dir, f"{safe_player}_list.txt"))
-                with open(list_file, "w") as f:
+                concat_list_path = os.path.join(output_dir, f"{safe_player}_list.txt")
+                with open(concat_list_path, "w") as f:
                     for clip in temp_files:
-                        f.write(f"file '{os.path.abspath(clip)}'\n")
+                        f.write(f"file '{clip}'\n")
 
-                merged_path =  os.path.abspath(os.path.join(output_dir, f"{safe_player}.mp4"))
-                print(f"Merging {len(temp_files)} parts into {merged_path}...")
+                print(f" Merging {len(temp_files)} parts into → {final_path}")
                 subprocess.run([
-                    "ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", list_file,
-                    "-c", "copy", merged_path
-                ],  check=True, stdin=subprocess.DEVNULL)
+                    "ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", concat_list_path,
+                    "-c:v", "libx264", "-preset", "fast", "-crf", "23",
+                    "-c:a", "aac", "-b:a", "128k",
+                    final_path
+                ], check=True, stdin=subprocess.DEVNULL)
 
-                # Clean up
-                os.remove(list_file)
+                os.remove(concat_list_path)
                 for clip in temp_files:
                     os.remove(clip)
 
-            print(f"✅ Saved: {safe_player}.mp4")
+            print(f"Saved final clip: {final_path}")
 
     # def process_video(self, video_path):
     #     """ Process video and extract speaker names in parallel """
@@ -270,8 +290,8 @@ class HighlightExtractor:
         """Process video and extract speaker names using multiprocessing (10 workers)."""
         print("CPU Count : ", os.cpu_count()) 
         frames, timestamps = self.extract_frames(video_path)
-        # mp.set_start_method("spawn", force=True)
-        with concurrent.futures.ThreadPoolExecutor(max_workers=10) as executor:
+        mp.set_start_method("spawn", force=True)
+        with concurrent.futures.ProcessPoolExecutor(max_workers=10) as executor:
             future_to_index = {
                 executor.submit(self.process_frame, frame, timestamps[i], i): i
                 for i, frame in enumerate(frames)
@@ -282,7 +302,6 @@ class HighlightExtractor:
                     result = future.result()
                     if result and result.get("player"):
                         matched_name = self.match_player_name(result["player"], known_players, 50)
-
                         if matched_name is None:
                             print(f"Unrecognized player: {result['player']}")
                             # Optional debug visualization (uncomment to use)

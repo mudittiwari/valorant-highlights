@@ -13,7 +13,7 @@ logger = logging.getLogger(__name__)
 
 def download_and_merge(url: str, start: str, end: str):
     VIDEO_FORMAT = "311"
-    AUDIO_FORMAT = "140"
+    AUDIO_FORMAT = "234"
     VIDEO_FILE = os.path.abspath("video_temp.mp4")
     AUDIO_FILE = os.path.abspath("audio_temp.mp4")
     OUTPUT_FILE = os.path.abspath("clipped.mp4")
@@ -21,21 +21,22 @@ def download_and_merge(url: str, start: str, end: str):
     # Download video
     logger.info(f"Downloading video from {start} to {end}...")
     url = "https://www.youtube.com/watch?v=dXYllcjtR-o"
-    try:
-        result = subprocess.run(
-            ["yt-dlp", "-F", url],
-            check=True,
-            capture_output=True,
-            text=True
-        )
-        print("Available formats:")
-        print(result.stdout)
-    except subprocess.CalledProcessError as e:
-        print("yt-dlp command failed with error:")
-        print(e.stderr)
+    # try:
+        # result = subprocess.run(
+        #     ["yt-dlp", "-F", url],
+        #     check=True,
+        #     capture_output=True,
+        #     text=True
+        # )
+        # print("Available formats:")
+        # print(result.stdout)
+    # except subprocess.CalledProcessError as e:
+    #     print("yt-dlp command failed with error:")
+    #     print(e.stderr)
     video_cmd = [
         "yt-dlp",
         "--no-part",
+        "--quiet",
         "--download-sections", f"*{start}-{end}",
         "-f", VIDEO_FORMAT,
         "-o", VIDEO_FILE,
@@ -46,6 +47,7 @@ def download_and_merge(url: str, start: str, end: str):
     audio_cmd = [
         "yt-dlp",
         "--no-part",
+        "--quiet",
         "--download-sections", f"*{start}-{end}",
         "-f", AUDIO_FORMAT,
         "-o", AUDIO_FILE,
